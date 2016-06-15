@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Name="Page"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:SuperForms.Controls;assembly=SuperForms.Controls"
+             x:Class="SuperForms.Samples.MultiComponentLabelPage">
+  <controls:MultiComponentLabel Margin="0,20,0,0">
+    <controls:MultiComponentLabel.Components>
+      <controls:TextComponent Text="Time"/>
+      <controls:TextComponent Text=": "/>
+      <controls:TextComponent Text="{Binding CurrentTime, Source={x:Reference Page}}"/>
+    </controls:MultiComponentLabel.Components>
+  </controls:MultiComponentLabel>
+</ContentPage>
