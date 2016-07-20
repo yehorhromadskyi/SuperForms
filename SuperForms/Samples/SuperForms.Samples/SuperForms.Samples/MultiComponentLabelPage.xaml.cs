@@ -25,6 +25,9 @@ namespace SuperForms.Samples
 
         public MultiComponentLabelPage()
         {
+            // Workaround for fixing IOFileNotFound assenbly
+            MultiComponentLabel l = new MultiComponentLabel();
+
             InitializeComponent();
             BindingContext = this;
         }
