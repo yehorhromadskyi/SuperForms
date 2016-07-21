@@ -12,7 +12,10 @@ namespace SuperForms.Samples
         public App()
         {
             // The root page of your application
-            MainPage = new MultiComponentLabelPage();
+
+            //MainPage = new MultiComponentLabelPage
+
+            MainPage = new NavigationPage(new CustomToolbarPage());
         }
 
         protected override void OnStart()

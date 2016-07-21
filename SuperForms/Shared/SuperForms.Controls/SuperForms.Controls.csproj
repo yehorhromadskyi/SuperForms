@@ -35,7 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CustomToolbarItem.cs" />
     <Compile Include="MultiComponentLabel.cs" />
+    <Compile Include="Pages\PageWithCustomToolbar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

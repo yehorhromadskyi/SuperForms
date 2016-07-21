@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PageWithCustomToolbar x:Name="Page"
+                             xmlns="http://xamarin.com/schemas/2014/forms"
+                             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                             xmlns:controls="clr-namespace:SuperForms.Controls;assembly=SuperForms.Controls"
+                             xmlns:pages="clr-namespace:SuperForms.Controls.Pages;assembly=SuperForms.Controls"
+                             x:Class="SuperForms.Samples.CustomToolbarPage">
+  <pages:PageWithCustomToolbar.CustomToolbar>
+    <controls:CustomToolbarItem Name="Alloha"
+                                IsVisible="{Binding IsItemVisible, Source={x:Reference Page}}"/>
+  </pages:PageWithCustomToolbar.CustomToolbar>
+
+  <Button Text="Click!"
+          Clicked="OnButtonClicked"/>
+</pages:PageWithCustomToolbar>
