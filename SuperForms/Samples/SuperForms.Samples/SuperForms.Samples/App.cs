@@ -15,7 +15,9 @@ namespace SuperForms.Samples
 
             //MainPage = new MultiComponentLabelPage
 
-            MainPage = new NavigationPage(new CustomToolbarPage());
+            //MainPage = new NavigationPage(new CustomToolbarPage());
+
+            MainPage = new SuperListViewPage();
         }
 
         protected override void OnStart()

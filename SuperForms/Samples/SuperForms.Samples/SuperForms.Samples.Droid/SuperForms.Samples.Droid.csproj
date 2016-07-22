@@ -127,6 +127,10 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Platforms\SuperForms.Droid\SuperForms.Droid.csproj">
+      <Project>{0ea7e9b1-aee5-406d-9977-da776c6231a4}</Project>
+      <Name>SuperForms.Droid</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Shared\SuperForms.Controls\SuperForms.Controls.csproj">
       <Project>{c7bee640-3f1b-4c89-8260-48fce7152338}</Project>
       <Name>SuperForms.Controls</Name>
