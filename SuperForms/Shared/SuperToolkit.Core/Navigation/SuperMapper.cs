@@ -1,29 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.Concurrent;
 
 namespace SuperToolkit.Core.Navigation
 {
     public class SuperMapper
     {
-        private Dictionary<Type, object> _typeToAssociateDictionary = new Dictionary<Type, object>();
+        private readonly ConcurrentDictionary<Type, object> _typeToAssociateDictionary = new ConcurrentDictionary<Type, object>();
 
-        private Dictionary<object, Type> _associateToType = new Dictionary<object, Type>();
+        private readonly ConcurrentDictionary<object, Type> _associateToType = new ConcurrentDictionary<object, Type>();
 
         public void AddMapping(Type type, object associatedSource)
         {
-            _typeToAssociateDictionary.Add(type, associatedSource);
-            _associateToType.Add(associatedSource, type);
+            _typeToAssociateDictionary.TryAdd(type, associatedSource);
+            _associateToType.TryAdd(associatedSource, type);
         }
 
         public Type GetTypeSource(object associatedSource)
         {
-            var typeSource = _associateToType[associatedSource];
+            Type typeSource;
+            _associateToType.TryGetValue(associatedSource, out typeSource);
+
             return typeSource;
         }
 
         public object GetAssociatedSource(Type typeSource)
         {
-            var associatedSource = _typeToAssociateDictionary[typeSource];
+            object associatedSource;
+            _typeToAssociateDictionary.TryGetValue(typeSource, out associatedSource);
+
             return associatedSource;
         }
     }

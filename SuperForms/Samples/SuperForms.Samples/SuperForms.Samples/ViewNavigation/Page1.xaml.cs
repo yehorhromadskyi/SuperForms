@@ -19,7 +19,7 @@ namespace SuperForms.Samples.ViewNavigation
         public async void NavigateToPage2(object sender, EventArgs args)
         {
             var navigationService = DependencyService.Get<IViewNavigationService>();
-            await navigationService.NavigateToAsync(NavigationPageSource.Page2);
+            await navigationService.NavigateToAsync(NavigationPageSource.Page2, "hello from Page1");
         }
     }
 }

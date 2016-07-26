@@ -7,7 +7,7 @@ namespace SuperForms.Core.Navigation
     public interface IViewNavigationService
     {
         void Initialize(INavigation navigation, SuperMapper navigationMapper);
-        Task NavigateToAsync(object navigationSource);
+        Task NavigateToAsync(object navigationSource, object parameter = null);
         Task GoBackAsync();
     }
 }

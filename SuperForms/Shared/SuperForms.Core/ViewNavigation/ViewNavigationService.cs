@@ -2,6 +2,9 @@
 using SuperForms.Core.ViewNavigation;
 using SuperToolkit.Core.Navigation;
 using System;
+using System.Diagnostics;
+using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -19,14 +22,52 @@ namespace SuperForms.Core.ViewNavigation
             _navigationMapper = navigationMapper;
         }
 
-        public async Task NavigateToAsync(object navigationSource)
+        public async Task NavigateToAsync(object navigationSource, object parameter = null)
         {
             CheckIsInitialized();
 
-            var pageType = _navigationMapper.GetTypeSource(navigationSource);
-            var pageInstance = (Page)Activator.CreateInstance(pageType);
+            var type = _navigationMapper.GetTypeSource(navigationSource);
 
-            await _navigation.PushAsync(pageInstance);
+            if (type == null)
+            {
+                throw new InvalidOperationException(
+                    "Can't find associated type for " + navigationSource.ToString());
+            }
+
+            ConstructorInfo constructor;
+            object[] parameters;
+
+            if (parameter == null)
+            {
+                constructor = type.GetTypeInfo()
+                                  .DeclaredConstructors
+                                  .FirstOrDefault(c => !c.GetParameters().Any());
+
+                parameters = new object[] { };
+            }
+            else
+            {
+                constructor = type.GetTypeInfo()
+                                  .DeclaredConstructors
+                                  .FirstOrDefault(c =>
+                                    {
+                                        var p = c.GetParameters();
+                                        return p.Count() == 1 &&
+                                            p[0].ParameterType == parameter.GetType();
+                                    });
+
+                parameters = new[] { parameter };
+            }
+
+            if (constructor == null)
+            {
+                throw new InvalidOperationException(
+                    "No suitable constructor found for page " + navigationSource.ToString());
+            }
+
+            var page = constructor.Invoke(parameters) as Page;
+
+            await _navigation.PushAsync(page);
         }
 
         public async Task GoBackAsync()

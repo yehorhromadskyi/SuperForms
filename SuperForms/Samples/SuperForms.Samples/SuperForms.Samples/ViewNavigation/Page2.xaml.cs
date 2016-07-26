@@ -11,9 +11,11 @@ namespace SuperForms.Samples.ViewNavigation
 {
     public partial class Page2 : ContentPage
     {
-        public Page2()
+        public Page2(string s)
         {
             InitializeComponent();
+
+            label.Text = s;
         }
 
         public async void NavigateToPage1(object sender, EventArgs args)
