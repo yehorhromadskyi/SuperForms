@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:customPropertySample="clr-namespace:SuperForms.Samples.CustomPropertySample;assembly=SuperForms.Samples"
+             x:Class="SuperForms.Samples.App">
+  <Application.Resources>
+    <ResourceDictionary>
+      <Style x:Key="BasePageStyle" TargetType="ContentPage">
+        <Setter Property="BackgroundColor">
+          <Setter.Value>
+            #ff0000
+          </Setter.Value>
+        </Setter>
+      </Style>
+    </ResourceDictionary>
+  </Application.Resources>
+</Application>

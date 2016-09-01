@@ -5,15 +5,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
 namespace SuperForms.Samples
 {
-    public class App : Application
+    public partial class App : Application
     {
         public App()
         {
+            InitializeComponent();
+
             //MainPage = new MultiComponentLabelPage
 
             //MainPage = new NavigationPage(new CustomToolbarPage());
@@ -21,9 +24,11 @@ namespace SuperForms.Samples
             //MainPage = new SuperListViewPage();
 
             //ViewNavigation sample
-            var startPage = new Page1();
-            InitializeNavigation(startPage);
-            MainPage = new NavigationPage(startPage);
+            //var startPage = new Page1();
+            //InitializeNavigation(startPage);
+            //MainPage = new NavigationPage(startPage);
+
+            MainPage = new BorderPage();
         }
 
         protected override void OnStart()
@@ -50,7 +55,7 @@ namespace SuperForms.Samples
 
             var navigationService = DependencyService.Get<IViewNavigationService>();
             navigationService.Initialize(startPage.Navigation, mapper);
-        } 
+        }
         #endregion
     }
 }

@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Border.cs" />
     <Compile Include="CustomToolbarItem.cs" />
     <Compile Include="MultiComponentLabel.cs" />
     <Compile Include="Pages\PageWithCustomToolbar.cs" />
