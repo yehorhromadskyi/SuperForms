@@ -1,7 +1,4 @@
-﻿using SuperForms.Core.Navigation;
-using SuperForms.Samples.ViewNavigation;
-using SuperToolkit.Core.Navigation;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,18 +14,13 @@ namespace SuperForms.Samples
         {
             InitializeComponent();
 
-            //MainPage = new MultiComponentLabelPage
+            MainPage = new MultiComponentLabelPage();
 
             //MainPage = new NavigationPage(new CustomToolbarPage());
 
             //MainPage = new SuperListViewPage();
 
-            //ViewNavigation sample
-            //var startPage = new Page1();
-            //InitializeNavigation(startPage);
-            //MainPage = new NavigationPage(startPage);
-
-            MainPage = new BorderPage();
+            //MainPage = new BorderPage();
         }
 
         protected override void OnStart()
@@ -45,17 +37,5 @@ namespace SuperForms.Samples
         {
             // Handle when your app resumes
         }
-
-        #region Sample of navigation initialization
-        private void InitializeNavigation(Page startPage)
-        {
-            var mapper = new SuperMapper();
-            mapper.AddMapping(typeof(Page1), NavigationPageSource.Page1);
-            mapper.AddMapping(typeof(Page2), NavigationPageSource.Page2);
-
-            var navigationService = DependencyService.Get<IViewNavigationService>();
-            navigationService.Initialize(startPage.Navigation, mapper);
-        }
-        #endregion
     }
 }

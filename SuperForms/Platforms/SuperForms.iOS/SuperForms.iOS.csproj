@@ -67,10 +67,6 @@
       <Project>{c7bee640-3f1b-4c89-8260-48fce7152338}</Project>
       <Name>SuperForms.Controls</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Shared\SuperForms.Core\SuperForms.Core.csproj">
-      <Project>{67f9d3a8-f71e-4428-913f-c37ae82cdb24}</Project>
-      <Name>SuperForms.Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
