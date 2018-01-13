@@ -8,7 +8,7 @@ namespace SuperForms.Samples
     {
         public BorderPage()
         {
-            var border = new Border();
+            //var border = new Border();
 
             InitializeComponent();
         }
